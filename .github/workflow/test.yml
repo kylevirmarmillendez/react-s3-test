@@ -1,0 +1,19 @@
+name: React test s3
+
+on:
+  push:
+    branches:
+      -"master"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm install
+      - run: npm run dev
+      - run: npm test
